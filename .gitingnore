@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Original raw Facebook images (already copied to img/)
+www.facebook.com_*.png
+
+# Raw uploads kept out of the site
+/*.jpg
