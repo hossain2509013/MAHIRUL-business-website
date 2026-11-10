@@ -1,3 +1,6 @@
+// Lets CSS fade-in styles apply only when JavaScript runs
+document.documentElement.classList.add('js');
+
 // ========== NAVBAR SCROLL EFFECT ==========
 const navbar = document.getElementById('navbar');
 const backToTop = document.getElementById('backToTop');
@@ -28,6 +31,7 @@ const navLinks = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
     navToggle.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
 });
 
 // Close menu when a link is clicked
@@ -35,6 +39,7 @@ navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('open');
         navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
     });
 });
 
@@ -115,9 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // ========== SMOOTH ANCHOR LINKS ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        // href="#" (logo) would make querySelector throw; let it jump to the top instead
+        if (href === '#') return;
+        const target = document.querySelector(href);
         if (target) {
+            e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
         }
     });
