@@ -78,12 +78,11 @@ MAHIRUL-business-website/
 │   └── script.js              # Navbar scroll effect, image switcher & observer
 └── img/
     ├── logo.jpg               # Official MH monogram
-    ├── banner.jpg             # Custom Bottles & Keyrings cover banner
     ├── product-cuet-bottle.jpg# Bottle lifestyle photography
-    ├── product-showcase.jpg   # Bottle front, back & box showcase render
-    ├── product-real.jpg       # Finished product batch photography
-    ├── promo-duck.jpg         # Creative hydration promo
-    └── promo-art.jpg          # Campus pride artwork
+    ├── gallery-showcase.jpg   # 1:1 Standardized product showcase (render with box)
+    ├── gallery-lifestyle.jpg  # 1:1 Standardized lifestyle view on desk
+    ├── gallery-real.jpg       # 1:1 Enhanced real photo taken by Mahirul (shadow-lifted)
+    └── gallery-duck.jpg       # 1:1 Standardized hydration reminder visual
 ```
 
 ---

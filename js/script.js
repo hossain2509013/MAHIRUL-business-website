@@ -68,26 +68,85 @@ function updateActiveNav() {
 
 window.addEventListener('scroll', updateActiveNav);
 
+// ========== PRELOAD GALLERY IMAGES ==========
+const gallerySources = [
+    'img/gallery-showcase.jpg',
+    'img/gallery-lifestyle.jpg',
+    'img/gallery-real.jpg',
+    'img/gallery-duck.jpg'
+];
+gallerySources.forEach(src => {
+    const preloader = new Image();
+    preloader.src = src;
+});
+
 // ========== PRODUCT IMAGE SWITCHER ==========
 function changeImage(src, thumbEl) {
     const mainImg = document.getElementById('mainProductImg');
-    mainImg.style.opacity = '0';
+    if (!mainImg) return;
     
-    setTimeout(() => {
+    mainImg.style.opacity = '0.35';
+    
+    const nextImg = new Image();
+    nextImg.onload = () => {
         mainImg.src = src;
         mainImg.style.opacity = '1';
-    }, 200);
+    };
+    nextImg.src = src;
     
     // Update active thumb
     document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-    thumbEl.classList.add('active');
+    if (thumbEl) {
+        thumbEl.classList.add('active');
+    }
+}
+
+// ========== COPY TO CLIPBOARD ==========
+function copyNumber(number, btnEl) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(number).then(() => {
+            handleCopiedState(btnEl);
+        }).catch(() => {
+            fallbackCopy(number, btnEl);
+        });
+    } else {
+        fallbackCopy(number, btnEl);
+    }
+}
+
+function fallbackCopy(text, btnEl) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        handleCopiedState(btnEl);
+    } catch (err) {
+        console.error('Copy failed', err);
+    }
+    document.body.removeChild(textarea);
+}
+
+function handleCopiedState(btnEl) {
+    if (!btnEl) return;
+    const originalHTML = btnEl.innerHTML;
+    btnEl.classList.add('copied');
+    btnEl.innerHTML = '<i class="fas fa-check"></i> <span>Copied!</span>';
+    setTimeout(() => {
+        btnEl.classList.remove('copied');
+        btnEl.innerHTML = originalHTML;
+    }, 2000);
 }
 
 // Add transition to main product image
 document.addEventListener('DOMContentLoaded', () => {
     const mainImg = document.getElementById('mainProductImg');
     if (mainImg) {
-        mainImg.style.transition = 'opacity 0.3s ease';
+        mainImg.style.transition = 'opacity 0.22s ease';
     }
 });
 

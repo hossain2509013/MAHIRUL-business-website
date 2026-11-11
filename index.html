@@ -93,7 +93,7 @@
                 <div class="hero-visual-col">
                     <div class="hero-product-card">
                         <div class="hero-card-tag">CUET Edition</div>
-                        <img src="img/product-showcase.jpg" alt="CUET Inspired Premium Aluminium Bottle with Packaging Box" class="hero-product-img">
+                        <img src="img/gallery-showcase.jpg" alt="CUET Inspired Premium Aluminium Bottle with Packaging Box" class="hero-product-img">
                         <div class="hero-card-meta">
                             <div class="meta-item">
                                 <i class="fas fa-box-open"></i>
@@ -169,20 +169,20 @@
             <div class="product-showcase">
                 <div class="product-images">
                     <div class="product-main-image">
-                        <img src="img/product-showcase.jpg" alt="CUET Water Bottle - Front & Back with Premium Box" id="mainProductImg">
+                        <img src="img/gallery-showcase.jpg" alt="CUET Water Bottle - Front & Back with Premium Box" id="mainProductImg">
                     </div>
                     <div class="product-thumbs">
-                        <button class="thumb active" onclick="changeImage('img/product-showcase.jpg', this)">
-                            <img src="img/product-showcase.jpg" alt="Showcase view">
+                        <button class="thumb active" onclick="changeImage('img/gallery-showcase.jpg', this)" aria-label="View Showcase">
+                            <img src="img/gallery-showcase.jpg" alt="Showcase view">
                         </button>
-                        <button class="thumb" onclick="changeImage('img/product-cuet-bottle.jpg', this)">
-                            <img src="img/product-cuet-bottle.jpg" alt="Lifestyle view">
+                        <button class="thumb" onclick="changeImage('img/gallery-lifestyle.jpg', this)" aria-label="View Lifestyle on Desk">
+                            <img src="img/gallery-lifestyle.jpg" alt="Lifestyle view">
                         </button>
-                        <button class="thumb" onclick="changeImage('img/product-real.jpg', this)">
-                            <img src="img/product-real.jpg" alt="Real product">
+                        <button class="thumb" onclick="changeImage('img/gallery-real.jpg', this)" aria-label="View Real Product Photo by Mahirul">
+                            <img src="img/gallery-real.jpg" alt="Real product photo by Mahirul">
                         </button>
-                        <button class="thumb" onclick="changeImage('img/promo-duck.jpg', this)">
-                            <img src="img/promo-duck.jpg" alt="Promo view">
+                        <button class="thumb" onclick="changeImage('img/gallery-duck.jpg', this)" aria-label="View Hydration Reminder">
+                            <img src="img/gallery-duck.jpg" alt="Promo view">
                         </button>
                     </div>
                 </div>
@@ -259,10 +259,18 @@
                             <div class="payment-method-item">
                                 <span class="pay-badge bkash"><i class="fas fa-wallet"></i> bKash</span>
                                 <span class="pay-detail"><strong>01836187243</strong> (Send Money)</span>
+                                <button type="button" class="copy-btn" onclick="copyNumber('01836187243', this)" aria-label="Copy bKash number" title="Copy Number">
+                                    <i class="fas fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
                             </div>
                             <div class="payment-method-item">
                                 <span class="pay-badge nagad"><i class="fas fa-wallet"></i> Nagad</span>
                                 <span class="pay-detail"><strong>01836187243</strong> (Send Money)</span>
+                                <button type="button" class="copy-btn" onclick="copyNumber('01836187243', this)" aria-label="Copy Nagad number" title="Copy Number">
+                                    <i class="fas fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
                             </div>
                         </div>
                         <p class="ref-note"><i class="fas fa-id-card"></i> Use your <strong>Student ID</strong> as Reference during payment.</p>
@@ -449,6 +457,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Quick Support -->
+    <a href="https://wa.me/8801777888446?text=Hi%20Mahirul!%20I%20have%20a%20query%20about%20the%20CUET%20Bottle." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Chat on WhatsApp with Mahirul">
+        <i class="fab fa-whatsapp"></i>
+        <span class="floating-wa-label">WhatsApp</span>
+    </a>
 
     <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
